@@ -29,6 +29,9 @@ body {
   nav li{
       list-style: none;
   }
+  ul{
+      list-style: none;
+  }
   .starter{
       width: 100%;
       height: 100%;
@@ -132,9 +135,10 @@ header{
     border-bottom: 1px solid #0c0b09;
     top: 40px;
     transition: 0.5s ease-in-out;
-    z-index: 3;
+    z-index: 5;
     min-width: 290px;
 }
+
 .header-scrolled{
     top: 0;
     background-color: rgba(0, 0, 0, 0.85);
@@ -151,16 +155,16 @@ h1 a:hover{
     color: #fff;
     
 }
-nav{
+.nav{
     height: 100%;
 }
-nav li a{
+.nav li a{
     padding: 15px;
     font-size: 14px;
     color: #fff;
     transition: 0.5s ease;
 }
-nav li a span{
+.nav li a span{
     margin-left: 5px;
 }
 .nav-button{
@@ -230,8 +234,9 @@ nav li a span{
     border-radius: 5px;
     background-color: #fff;
     opacity: 0;
-    transition: 0.5s ease;
+    transition: 0.2s ease;
     z-index: 101;
+    visibility: hidden;
 }
 .deep-navbar-deep li a{
     color: #444444;
@@ -246,7 +251,7 @@ nav li a span{
    opacity: 1;
 }
 @media only screen and (max-width: 1180px) {
-    nav li,.nav-button{
+    .nav li,.nav-button{
         display: none;
     }
     .burger{
@@ -290,13 +295,18 @@ nav li a span{
     font-size: 25px;
     color: grey;
     position: absolute;
-    right:20px;
-    top: 10px;
+    right:70px;
+    top: 40px;
     cursor: pointer;
 }
 @media screen and (min-width:1180px){
     .mobile-menu{
         visibility: hidden;
+    }
+}
+@media screen and (max-width:440px){
+    .close-mobile-menu{
+        right: 30px;
     }
 }
 
@@ -385,9 +395,27 @@ nav li a span{
 .about{
     width: 100%;
     padding-top: 300px;
+    padding-bottom: 100px;
     transition: 1s ease;
     opacity: 0;
     min-width: 290px;
+    position: relative;
+    background-image: url(../images/about.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 3;
+}
+.about::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 .about-scrolled{
     padding-top: 80px;
@@ -471,20 +499,735 @@ nav li a span{
     }
 }
 /* =================== end about ================= */
-.test{
-    width: 200px;
-    height: 200px;
-    background-color: rebeccapurple;
-    animation: spin 2s;
-    transform-origin: center;
-    margin-left: 200px;
+/*==================== start why us================== */
+.why-us{
+    padding: 100px 0;
+    min-width: 250px;
 }
-@keyframes spin {
-    0%{
-        margin-left: 0
+.why-us-title{
+    margin-top: 100px;
+    opacity: 0;
+    transition: 1.5s ease;
+}
+.why-us-title-scrolled{
+    margin-top: 0;
+    opacity: 1;
+}
+.why-us-title h5{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.why-us-title h5::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.why-us-title h2{
+    font-size: 35px;
+    color: #cda45e;
+    margin-bottom: 40px;
+}
+.why-us-box-child{
+    padding: 50px 30px;
+    background-color:#1a1814;
+    transition: 1.5s ease;
+    margin-top: 20px;
+}
+.why-us-box-child{
+    transform: scale(0.5);
+}
+.why-us-box-child-scrolled{
+    transform: scale(1);
+}
+.why-us-box-child:hover{
+    padding-top: 30px;
+    padding-bottom: 70px;
+    background-color: #cda45e;
+}
+.why-us-box-child:hover h3{
+    color: #fff;
+}
+.why-us-box-child:hover h4{
+    color: #fff;
+}
+.why-us-box-child:hover p{
+    color: #fff;
+}
+.why-us-box-child h3{
+    margin: 0 0 20px 0;
+    color: #cda45e;
+}
+.why-us-box-child h4, p{
+    color: grey;
+}
+/* =================== end why us ===================== */
+/* <!--=============== start menu================== --> */
+.menu{
+    min-width: 290px;
+    padding: 80px 0;
+    background-color: #1a1814;
+}
+.menu-title{
+    margin-top: 100px;
+    opacity: 0;
+    transition: 1.5s ease;
+}
+.menu-title-scroll{
+    margin-top: 0;
+    opacity: 1;
+}
+.menu-title h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.menu-title h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.menu-title h2{
+    font-size: 40px;
+    color: #cda45e;
+    margin-bottom: 40px;
+}
+/* .menu-content div{
+    margin-top: 40px;
+    padding: 0 20px;
+} */
+.clear{
+    clear: both;
+}
+.menu ul li a{
+    padding: 10px;
+    color:#fff;
+    transition: 0.3s ease-in-out;
+}
+.menu ul li a:hover{
+    color: #cda45e;
+}
+.menu img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 5px solid grey;
+}
+.menu-box{
+    width: 100%;
+
+    padding: 25px 20px;
+}
+.menu-box a{
+    float: left
+    ;
+}
+.menu-box span{
+    float: right;
+    color: #cda45e;
+    font-size: 18px;
+    font-weight: bold;
+}
+.menu p{
+    font-style: italic;
+}
+/* <!--=============== end menu================== --> */
+/* ===================start specoals============== */
+.specials{
+    min-width: 290px;
+    padding: 170px 0;
+    opacity: 0;
+    transition: 1s ease;
+}
+.specials-scroll{
+    padding: 70px 0;
+    opacity: 1;
+}
+.specials-title h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.specials-title h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.specials-title h2{
+    font-size: 45px;
+    color: #cda45e;
+    margin-bottom: 30px;
+
+}
+.specials-check ul{
+    padding-left: 0;
+    border-right: 3px solid #cda45e;
+}
+.specials-check ul li{
+    padding: 12px 5px;
+    font-size: 17px;
+}
+.li-active{
+    background-color: #cda45e;
+    color: black;
+}
+.specials-check ul li a{
+    color: #fff;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.specials-check ul li a:hover{
+    color: #444;
+}
+.specials-content-middle h4{
+    color: #fff;
+    font-size: 27px;
+}
+.specials-content-middle h6{
+    color: #444;
+    font-style: italic;
+    font-weight: 600;
+    margin: 30px 0;
+}
+.specials-content-middle p{
+    color: #444;
+    font-weight: 600;
+}
+.specials img{
+    width: 100%;
+}
+/* ===================end specials================ */
+/* <!--=============== start events================== --> */
+.events{
+    min-width: 290px;
+    padding-top: 150px;
+    padding-bottom: 70px;
+    background-image: url(../images/events-bg.jpg);
+    background-attachment: fixed;
+    position: relative;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0;
+    transition: 1s ease;
+}
+.events-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.events::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.events-title h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.events-title h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.events-title h2{
+    font-size: 35px;
+    color: #cda45e;
+    margin-bottom: 30px;
+}
+.container-slide{
+    overflow: hidden;
+    width: 49%;
+    padding: 0;
+}
+.events img{
+    width: 100%;
+}
+.slider{
+    display: flex;
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    /* transition: 0.5s; */
+}
+.btn-box{
+    width: 150px;
+    margin: auto;
+    margin-top: 30px;
+}
+.btnn{
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: grey;
+    display: inline-block;
+    cursor: pointer;
+    margin: 5px;
+    
+}
+.btn-active{
+    background-color: #fff;
+}
+/* <!--=============== end events================== --> */
+/* <!--=============== start reservation================== --> */
+.reservation{
+    min-width: 290px;
+    padding-top: 150px;
+    padding-bottom: 30px;
+    opacity: 0;
+    transition: 1s ease;
+}
+.reservation-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.reservation h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.reservation h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.reservation h2{
+    font-size: 45px;
+    color: #cda45e;
+    margin-bottom: 30px;
+}
+.reservation input{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #444;
+    padding-left:10px;
+    margin-bottom: 25px;
+    color: #fff;
+}
+#date,#time{
+    color: #444;
+}
+#number{
+    color: #fff;
+}
+.reservation textarea{
+    width: 100%;
+    height: 130px;
+    background-color: transparent;
+    padding: 10px;
+}
+.sub{
+    text-align: center;
+    padding-top:20px ;
+}
+#submit{
+    width: 150px;
+    height: 45px;
+    background-color: #cda45e;
+    border-radius: 20px;
+    color: #fff;
+}
+/* <!--=============== end reservaion================== --> */
+/* <!--=============== start testimonials================== --> */
+.testimonials{
+    min-width: 290px;
+    padding-top: 150px;
+    padding-bottom: 70px;
+    opacity: 0;
+    transition: 1s ease;
+}
+.testimonials-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.testimonials h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.testimonials h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.testimonials h2{
+    font-size: 40px;
+    color: #cda45e;
+    margin-bottom: 30px;
+}
+
+/* <!--=============== end testimonials================== --> */
+/* <!--=============== start gelery================== --> */
+.gallery{
+    min-width: 290px;
+    padding: 150px 0;
+    padding: 10px;
+    opacity: 0;
+    transition: 1s ease;
+}
+.gallery-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.gallery h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.gallery h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.gallery h2{
+    font-size: 35px;
+    color: #cda45e;
+    margin-bottom: 30px;
+}
+.gallery-content div{
+    border: 2px solid #444;
+    padding: 0;
+    overflow: hidden;
+    
+}
+.gallery-content img{
+    width: 100%;
+    height: 100%;
+    transition:  0.5s ease;
+    cursor: pointer;
+}
+.gallery-content div:hover img{
+    transform: scale(1.1);
+}
+/* <!--=============== end gelery================== --> */
+/* <!--=============== start chefs================== --> */
+.chefs{
+    min-width: 290px;
+    padding-top: 150px;
+    padding-bottom: 30px;
+    opacity: 0;
+    transition: 1s ease;
+}
+.chefs-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.chefs-title h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.chefs-title h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.chefs-title h2{
+    font-size: 35px;
+    color: #cda45e;
+    margin-bottom: 30px;
+}
+.chefs-content img{
+    width: 100%;
+}
+.chefs-info{
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+}
+.chefs-info h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 0 0 ;
+    color: #0c0b09;
+}
+.chefs-info span{
+    font-size: 14px;
+    font-family: sans-serif;
+    font-style: italic;
+    color: #0c0b09;
+}
+
+.chefs-info i{
+    margin: 10px;
+    font-size: 20px;
+    color: #090909;;
+}
+.chefs-content-box:hover .chefs-info{
+    opacity: 1;
+    bottom: 0;
+}
+.chefs-content-box{
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+
+/* <!--=============== end chefs================== --> */
+/* <!--=============== start contact================== --> */
+.contact{
+    min-width: 290px;
+    padding-top: 150px;
+    padding-bottom: 30px;
+    opacity: 0;
+    border-bottom: 1px solid #444;
+    transition: 1s ease;
+}
+.contact-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.contact-title h3{
+    font-size: 15px;
+    color: grey;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.contact-title h3::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: grey;
+    margin-left: 10px;
+}
+.contact-title h2{
+    font-size: 35px;
+    color: #cda45e;
+    margin-bottom: 30px;
+}
+.map iframe{
+    padding: 0;
+}
+.contact-form{
+    padding-top: 50px;
+}
+.contact-info{
+    display: flex;
+    margin-bottom: 30px;
+}
+.icon{
+    height: 60px;
+    width: 60px;
+    background-color:#cda45e;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+.contact-info h3{
+    font-size: 22px;
+   font-weight: 600;
+   display: inline;
+}
+.contact-info p{
+    font-size: 14px;
+    color: #444;
+}
+#txt{
+    float: left;
+    width: 48%;
+    height: 40px;
+}
+#eml{
+    float: right;
+    width: 48%;
+    height: 40px;
+}
+#subject-input{
+    width: 100%;
+    height: 40px;
+}
+#contact-textarea{
+    width: 100%;
+    height: 180px;
+}
+#txt,#eml,#subject-input,#contact-textarea{
+    background-color: transparent;
+    color: #fff;
+    margin-top: 20px;
+    border: 1px solid #444;
+    padding: 10px;
+}
+#contact-submit{
+    width: 160px;
+    height: 40px;
+   border-radius: 30px;
+   color: #fff;
+   font-weight: 600;
+   background-color: #cda45e;
+   border: 0;
+}
+.subdiv{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+/* <!--=============== end contact================== --> */
+/* ====================start footer============================= */
+footer{
+    min-width: 290px;
+    padding-top: 70px;
+    padding-bottom: 0;
+    opacity: 0;
+    transition: 1s ease;
+}
+.footer-scroll{
+    padding-top: 70px;
+    opacity: 1;
+}
+.footer-top{
+    border-bottom: 1px solid #444;
+}
+.footer-top span{
+    display: block;
+    margin: 20px 0;
+    font-size: 14px;
+}
+.footer-top span i{
+    margin-right: 10px;
+    color: #cda45e;
+}
+.footer-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px 0 0;
+}
+.footer-icons i{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+.footer-icons i:hover{
+    color: #fff;
+    background-color: #cda45e;
+}
+
+.footer-top a{
+    color: #fff;
+    transition: 0.3s ease;
+}
+.footer-top a:hover{
+    color: #cda45e;
+}
+.footer-top p{
+    color: #fff;
+    font-size: 14px;
+}
+.footer-top h2{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.footer-top h3{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.subscribe-div form{
+    width: 100%;
+    border: 1px solid #444;
+    height: 40px;
+    border-radius: 30px;
+    padding-left: 10px;
+    background-color: #444;
+    padding-left: 10px;
+}
+.subscribe-div #footer-email{
+    height: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    float :left;
+    
+}
+.subscribe-div #footer-sub{
+    height: 100%;
+    float: right;
+    padding: 0 35px;
+    border: 0;
+    background-color: #cda45e;
+    color: #fff;
+    outline: none;
+    border-radius: 20px;
+}
+.footer-bottom{
+    background-color: black;
+    padding: 50px 0;
+}
+.none{
+    display: none;
+}
+.footer-bottom p{
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+.footer-info{
+    margin-top: 20px;
+}
+@media only screen and (max-width:480px){
+    #footer-email{
+        width: 50%;
     }
-    100%{
-      transform: rotate(360deg) ;
-      margin-left: 200px;
+    #footer-sub{
+        width: 50%;
     }
 }
+/* ====================end footer =============================== */
